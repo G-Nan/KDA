@@ -70,3 +70,18 @@ class App extends Component{
 }
 
 export default App;
+
+// App.js
+import axios from 'axios';
+
+onFileUpload = () => {
+  const formData = new FormData();
+  formData.append(
+    "demo file",
+    this.state.selectedFile,
+    this.state.selectedFile.name
+  )
+  axios.post("API Gateway URL", formData).then(() => { https://tdfu210m6d.execute-api.ap-northeast-2.amazonaws.com/prod/file-upload-resource
+    this.setState({selectedFile: null});
+    this.setState({fileUploadedSuccessfully: true});
+  })
